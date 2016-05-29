@@ -1,0 +1,1 @@
+swift build --configuration release

@@ -33,11 +33,11 @@ is mostly used as a reference of what would be ideal.
 
 33 clients test:
 
-![33](https://raw.githubusercontent.com/spion/hashtable-latencies/master/reports/033.png)
+![33](https://github.com/spion/hashtable-latencies/blob/7be7dede70ceafba2ded245d3fbd78372c5de497/reports/033.png)
 
 333 clients test:
 
-![333](https://raw.githubusercontent.com/spion/hashtable-latencies/master/reports/333.png)
+![333](https://github.com/spion/hashtable-latencies/blob/7be7dede70ceafba2ded245d3fbd78372c5de497/reports/333.png)
 
 # Program notes
 

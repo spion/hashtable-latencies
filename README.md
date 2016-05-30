@@ -4,9 +4,7 @@ This benchmark measures the latency of a web service that stores a large
 (250K item) hashtable, in multiple languages.
 
 Garbage collected languages are of greater interest, and the Swift version
-is mostly used as a reference of what would be ideal. Unfortunately, the
-Swift version doesn't seem to respond too well to higher concurrency, so
-its only useful in the 33 clients tests.
+is mostly used as a reference of what would be ideal.
 
 # Rules for implementations.
 
@@ -22,7 +20,7 @@ its only useful in the 33 clients tests.
 
 # Tests
 
-* Warmup: 10K req/s are sent for 30s (initial hash table content)
+* Warmup: 10K req/s are sent for 60s (initial hash table content)
 * Test 033: 10K req/s are sent by 33  clients concurrently for 60s
 * Test 333: 10K req/s are sent by 333 clients concurrently for 60s
 

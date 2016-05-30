@@ -4,8 +4,6 @@ import Network.Wai
 import Network.HTTP.Types
 import Network.Wai.Handler.Warp (run)
 import Data.HashTable.IO as HIO
-import System.IO.Error (tryIOError)
-import Data.Either
 import qualified Data.ByteString as BS
 import Control.Concurrent.MVar
 import Control.Monad (when)
@@ -34,7 +32,7 @@ handle (Service counter hash) _ respond = do
   cnt <- takeMVar counter
   putMVar counter (cnt + 1)
   HIO.insert hash cnt (message cnt)
-  when (cnt > maxItems) $ HIO.delete hash (cnt - maxItems)
+  when (cnt >= maxItems) $ HIO.delete hash (cnt - maxItems)
   respond $ responseLBS status200 [] "OK"
 
 handle404 :: Application

@@ -1,4 +1,11 @@
-for program in `cat programs.txt`
+if [ -z "$1" ]
+then
+  programs=`cat programs.txt`
+else
+  programs=$*
+fi
+
+for program in $programs
 do
   cd $program
   echo "Building $program..."
@@ -9,7 +16,7 @@ do
   pid=$!
   sleep 3
   echo "Warming up $program..."
-  wrk2 --latency -c 33  -t 3 -d 30 -R10000 'http://localhost:8080'
+  wrk2 --latency -c 33  -t 3 -d 60 -R10000 'http://localhost:8080'
   echo "Generating program report (33 clients)"
   wrk2 --latency -c 33  -t 3 -d 60 -R10000 'http://localhost:8080' > "../reports/033-$program.txt"
   echo "Generating program report (333 clients)"

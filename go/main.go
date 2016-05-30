@@ -15,9 +15,10 @@ func main() {
 	max := 250000
 
 	handler := func(w http.ResponseWriter, r *http.Request) {
+		newBuffer := make([]byte, 1024)
 		mutex.Lock()
-		m[cnt] = make([]byte, 1024)
-		if cnt > max {
+		m[cnt] = newBuffer
+		if cnt >= max {
 			m[cnt-max] = nil
 		}
 		cnt = cnt + 1

@@ -13,11 +13,12 @@ type counter = {mutable c: int};
 
 let server = {
   let cnt:counter = {c: 0};
+
   let callback _conn req body => {
     let k = cnt.c;
 
     Hashtbl.add tbl k (Array.make 1024 (Char.chr (k mod 256)));
-    if (k > limit) {
+    if (k >= limit) {
       Hashtbl.remove tbl (k - limit);
     };
 

@@ -51,9 +51,10 @@ is mostly used as a reference of what would be ideal.
 Want to build low-latency, memory-intensive services in a GCed language? Use
 OCaml (or Reason if you prefer the syntax).
 
-# Todo
+# Other things that were attempted to fool the OCaml GC:
 
-Explore how OCaml manages to achieve this. Try longer-running tests that will force the GC even if the maximum heap size is large.
+* random buffer sizes (only had negligable 20% latency increase), likely due to first-fit allocator taking some more time on average to find a proper free heap segment
+* longer running time (5 minutes): no effect
 
 [rii]: https://github.com/facebook/reason/blob/master/README.md#install-stable
 [his]: http://docs.haskellstack.org/en/stable/README/#how-to-install

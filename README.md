@@ -51,6 +51,10 @@ is mostly used as a reference of what would be ideal.
 Want to build low-latency, memory-intensive services in a GCed language? Use
 OCaml (or Reason if you prefer the syntax).
 
+# Todo
+
+Explore how OCaml manages to achieve this. Try longer-running tests that will force the GC even if the maximum heap size is large.
+
 [rii]: https://github.com/facebook/reason/blob/master/README.md#install-stable
 [his]: http://docs.haskellstack.org/en/stable/README/#how-to-install
 [swiftenv]: https://github.com/Zewo/Zewo#swiftenv

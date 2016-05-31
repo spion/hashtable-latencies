@@ -51,10 +51,17 @@ is mostly used as a reference of what would be ideal.
 Want to build low-latency, memory-intensive services in a GCed language? Use
 OCaml (or Reason if you prefer the syntax).
 
-# Other things that were attempted to fool the OCaml GC:
+# OCaml GC notes
 
-* random buffer sizes (only had negligable 20% latency increase, likely due to first-fit allocator taking some more time on average to find a proper free heap segment)
-* longer running time (5 minutes): no effect
+Other things that were attempted to make the latency worse for OCaml:
+
+* random buffer sizes (only had ~10% latency increase)
+* longer running time (5 minutes): another 10% latency increase.
+* combining above: total latency increase of 15%
+
+Things to try:
+
+* delete keys out of order (might increase heap compaction duration?)
 
 [rii]: https://github.com/facebook/reason/blob/master/README.md#install-stable
 [his]: http://docs.haskellstack.org/en/stable/README/#how-to-install

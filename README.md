@@ -53,7 +53,7 @@ OCaml (or Reason if you prefer the syntax).
 
 # Other things that were attempted to fool the OCaml GC:
 
-* random buffer sizes (only had negligable 20% latency increase), likely due to first-fit allocator taking some more time on average to find a proper free heap segment
+* random buffer sizes (only had negligable 20% latency increase, likely due to first-fit allocator taking some more time on average to find a proper free heap segment)
 * longer running time (5 minutes): no effect
 
 [rii]: https://github.com/facebook/reason/blob/master/README.md#install-stable

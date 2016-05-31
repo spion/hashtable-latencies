@@ -13,18 +13,14 @@ type counter = {mutable c: int};
 
 let server = {
   let cnt:counter = {c: 0};
-
   let callback _conn req body => {
     let k = cnt.c;
-
     Hashtbl.add tbl k (Array.make 1024 (Char.chr (k mod 256)));
     if (k >= limit) {
       Hashtbl.remove tbl (k - limit);
     };
-
     cnt.c = cnt.c + 1;
     Server.respond_string status::`OK body::"OK" ()
-
   };
   let s = Server.make callback::callback ();
   Server.create s

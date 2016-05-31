@@ -46,6 +46,11 @@ is mostly used as a reference of what would be ideal.
 * haskell - Should build easily if you have [stack][his]
 * swift-zewo - You should setup [swiftenv to the right snapshot][swiftenv]
 
+# Conclusions
+
+Want to build low-latency, memory-intensive services in a GCed language? Use
+OCaml (or Reason if you prefer the syntax).
+
 [rii]: https://github.com/facebook/reason/blob/master/README.md#install-stable
 [his]: http://docs.haskellstack.org/en/stable/README/#how-to-install
 [swiftenv]: https://github.com/Zewo/Zewo#swiftenv

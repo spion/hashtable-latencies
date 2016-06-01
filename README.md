@@ -55,7 +55,7 @@ OCaml (or Reason if you prefer the syntax).
 
 Other things that were attempted to make the latency worse for OCaml:
 
-* random buffer sizes (only had ~10% latency increase)
+* random buffer sizes (did not have any noticable increase, <5%)
 * longer running time (5 minutes): another 10% latency increase.
 * combining above: total latency increase of 15%
 

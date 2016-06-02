@@ -30,9 +30,10 @@ app svc request respond =
 
 handle (Service counter hash) _ respond = do
   cnt <- takeMVar counter
-  putMVar counter (cnt + 1)
-  HIO.insert hash cnt (message cnt)
+  let msg = message cnt
+  HIO.insert hash cnt msg
   when (cnt >= maxItems) $ HIO.delete hash (cnt - maxItems)
+  putMVar counter (cnt + 1)
   respond $ responseLBS status200 [] "OK"
 
 handle404 :: Application

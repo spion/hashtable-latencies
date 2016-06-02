@@ -19,7 +19,7 @@ func main() {
 		mutex.Lock()
 		m[cnt] = newBuffer
 		if cnt >= max {
-			m[cnt-max] = nil
+			delete(m, cnt-max)
 		}
 		cnt = cnt + 1
 		mutex.Unlock()

@@ -33,15 +33,15 @@ is mostly used as a reference of what would be ideal.
 
 33 clients test:
 
-![33](https://github.com/spion/hashtable-latencies/blob/37533a9574704a4f4c2fdfb53e83399a54b0763c/reports/033.png)
+![33](https://github.com/spion/hashtable-latencies/blob/cb12ee2c2cf9cf943c1c7b25da7642d68be20203/reports/033.png)
 
 333 clients test:
 
-![333](https://github.com/spion/hashtable-latencies/blob/37533a9574704a4f4c2fdfb53e83399a54b0763c/reports/333.png)
+![333](https://github.com/spion/hashtable-latencies/blob/cb12ee2c2cf9cf943c1c7b25da7642d68be20203/reports/333.png)
 
 # Program notes
 
-* go - Version is go1.6.2 darwin/amd64
+* go - Go version is go1.6.2 darwin/amd64; uses fasthttp
 * reason - This is OCaml 4.02.3 with a new syntax. Follow the [install instructions][rii]
 * node - Requires node 6.x (`Buffer.alloc` API)
 * haskell - Should build easily if you have [stack][his]

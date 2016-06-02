@@ -25,6 +25,5 @@ func main() {
 		mutex.Unlock()
 		io.WriteString(w, "OK")
 	}
-	http.HandleFunc("/", handler)
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":8080", http.HandlerFunc(handler))
 }

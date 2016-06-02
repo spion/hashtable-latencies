@@ -41,6 +41,7 @@ is mostly used as a reference of what would be ideal.
 
 # Program notes
 
+* go - Version is go1.6.2 darwin/amd64
 * reason - This is OCaml with a new syntax. Follow the [install instructions][rii]
 * node - Requires node 6.x (`Buffer.alloc` API)
 * haskell - Should build easily if you have [stack][his]

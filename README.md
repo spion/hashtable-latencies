@@ -21,8 +21,8 @@ is mostly used as a reference of what would be ideal.
 # Tests
 
 * Warmup: 10K req/s are sent for 60s (initial hash table content)
-* Test 033: 10K req/s are sent by 33  clients concurrently for 60s
-* Test 333: 10K req/s are sent by 333 clients concurrently for 60s
+* Test 033: 10K req/s are sent by 33  clients concurrently for 180s
+* Test 333: 10K req/s are sent by 333 clients concurrently for 180s
 
 # Output:
 

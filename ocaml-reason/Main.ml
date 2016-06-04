@@ -4,12 +4,10 @@ open Cohttp_lwt_unix
 open Hashtbl
 open Array
 open Char
-
 let limit = 250000
 let tbl: (int,char array) Hashtbl.t = Hashtbl.create limit
-
-type counter = { mutable c: int;}
-
+type counter = {
+  mutable c: int;}
 let server =
   let cnt: counter = { c = 0 } in
   let callback _conn req body =

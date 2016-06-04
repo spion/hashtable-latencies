@@ -20,9 +20,8 @@ is mostly used as a reference of what would be ideal.
 
 # Tests
 
-* Warmup: 10K req/s are sent for 60s (initial hash table content)
-* Test 033: 10K req/s are sent by 33  clients concurrently for 180s
-* Test 333: 10K req/s are sent by 333 clients concurrently for 180s
+* Warmup: 9K req/s are sent for 60s (initial hash table content)
+* Test :  9K req/s are sent by 99 clients concurrently for 180s
 
 # Output:
 
@@ -31,18 +30,15 @@ is mostly used as a reference of what would be ideal.
 
 # Current results
 
-33 clients test:
-
-![33](https://github.com/spion/hashtable-latencies/blob/05a0d360725b3d5e6ee57394dee591d9264bd247/reports/033.png)
-
-333 clients test:
-
-![333](https://github.com/spion/hashtable-latencies/blob/05a0d360725b3d5e6ee57394dee591d9264bd247/reports/333.png)
+![chart](https://github.com/spion/hashtable-latencies/blob/05a0d360725b3d5e6ee57394dee591d9264bd247/reports/histogram.png)
 
 # Program notes
 
-* go - Go version is go1.6.2 darwin/amd64; uses fasthttp
-* ocaml-reason - This is OCaml 4.02.3 with a new, JS-like syntax. Follow the [install instructions][rii]
+* go - Go version is go1.6.2 darwin/amd64; uses fasthttp. Using the built-in http library results
+  with a lot more work for the GC, and a chart similar to the one seen for Haskell.
+* ocaml-reason - This is built with OCaml 4.03+flambda (ReasonML is currently not compatible
+  with OCaml 4.03 so the ML version was generated from it using `refmt` first). Follow the
+  instructions here: https://ocaml.org/docs/install.html
 * node - Requires node 6.x (`Buffer.alloc` API)
 * haskell - Should build easily if you have [stack][his]
 * swift-zewo - You should setup [swiftenv to the right snapshot][swiftenv]
@@ -56,9 +52,8 @@ OCaml (or Reason if you prefer the syntax).
 
 Other things that were attempted to make the latency worse for OCaml:
 
-* random buffer sizes (did not have any noticable increase, <5%)
-* longer running time (5 minutes): another 10% latency increase.
-* combining above: total latency increase of 15%
+* random buffer sizes
+* longer running time
 
 Things to try:
 

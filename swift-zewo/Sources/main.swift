@@ -12,7 +12,7 @@ let app = Router { route in
         reqNo = reqNo + 1
         dataBytes[reqNo] = [Byte](repeating: 25, count: 1024)
         if (reqNo >= MAX) {
-            dataBytes[reqNo - MAX] = nil
+            dataBytes.removeValue(forKey: reqNo - MAX)
         }
         return Response(body: "OK")
     }

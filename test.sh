@@ -5,23 +5,27 @@ else
   programs=$*
 fi
 
+runtest() {
+  local program="$1"
+  local cmd="$2"
+  echo "Running $program..."
+  $cmd &
+  local pid=$!
+  sleep 3
+  echo "Warming up $program..."
+  wrk2 --latency -c 99 -t 3 -d 60 -R9000 'http://localhost:8080' | head -n17
+  echo "Generating $program report..."
+  wrk2 --latency -c 99 -t 3 -d 180 -R9000 'http://localhost:8080' > "../reports/$program"
+  kill -s HUP $pid
+  sleep 3
+}
+
 for program in $programs
 do
   cd $program
   echo "Building $program..."
   ./build.sh
-  echo "Running $program..."
   run=`cat ./run.sh`
-  $run &
-  pid=$!
-  sleep 3
-  echo "Warming up $program..."
-  wrk2 --latency -c 33  -t 3 -d 60 -R10000 'http://localhost:8080'
-  echo "Generating program report (33 clients)"
-  wrk2 --latency -c 33  -t 3 -d 180 -R10000 'http://localhost:8080' > "../reports/033-$program.txt"
-  echo "Generating program report (333 clients)"
-  wrk2 --latency -c 333 -t 3 -d 180 -R10000 'http://localhost:8080' > "../reports/333-$program.txt"
-  kill -s HUP $pid
-  sleep 3
+  runtest $program "$run"
   cd ..
 done

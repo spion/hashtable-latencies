@@ -59,6 +59,12 @@ Things to try:
 
 * delete keys out of order (might increase heap compaction duration?)
 
+Concerns:
+* memory usage is very big: The OCaml version achieves a steady-state of 4GB used
+* initial phase has slightly bigger latency: During the first 1 minute, the latency may go up to 25ms
+
+
+
 [rii]: https://github.com/facebook/reason/blob/master/README.md#install-stable
 [his]: http://docs.haskellstack.org/en/stable/README/#how-to-install
 [swiftenv]: https://github.com/Zewo/Zewo#swiftenv

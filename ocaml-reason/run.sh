@@ -1,1 +1,1 @@
-./Main.native
+exec ./Main.native

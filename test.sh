@@ -16,7 +16,7 @@ runtest() {
   wrk2 --latency -c 99 -t 3 -d 60 -R9000 'http://localhost:8080' | head -n17
   echo "Generating $program report..."
   wrk2 --latency -c 99 -t 3 -d 180 -R9000 'http://localhost:8080' > "../reports/$program"
-  kill -s HUP $pid
+  kill -s TERM $pid
   sleep 3
 }
 
@@ -25,7 +25,6 @@ do
   cd $program
   echo "Building $program..."
   ./build.sh
-  run=`cat ./run.sh`
-  runtest $program "$run"
+  runtest $program "./run.sh"
   cd ..
 done

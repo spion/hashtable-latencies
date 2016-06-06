@@ -22,7 +22,7 @@ runtest() {
 
 for program in $programs
 do
-  pushd $program
+  pushd "$program"
   echo "Building $program..."
   ./build.sh
   runtest "$program"

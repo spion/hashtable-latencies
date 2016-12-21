@@ -55,13 +55,9 @@ Other things that were attempted to make the latency worse for OCaml:
 * random buffer sizes
 * longer running time
 
-Things to try:
+# TODO:
 
-* delete keys out of order (might increase heap compaction duration?)
-
-Concerns:
-* ~~memory usage is very big: The OCaml version achieves a steady-state of 4GB used~~ - This was due to incorrectly using an array of 1024 chars instead of a Buffer. Since OCaml data types are all machine-word-sized, this resulted with 8KB buffers instead of 1KB buffers. Switching to the `Buffer` datatype eliminated this problem and brought down memory usage to ~ 500MB, which is comparable with the other languages (300MB-800MB)
-* initial phase has slightly bigger latency: During the first 1 minute, the latency may go up to 25ms
+* simulate extra GC work on a percentage of requests (i.e. creating T temporary objects of size S)
 
 
 

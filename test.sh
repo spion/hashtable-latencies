@@ -16,7 +16,7 @@ runtest() {
   echo "Warming up $program..."
   wrk2 --latency -c 99 -t 3 -d 60 -R10000 'http://localhost:8080' | head -n17
   echo "Generating $program report..."
-  wrk2 --latency -c 99 -t 3 -d 600 -R10000 'http://localhost:8080' > "../reports/$program"
+  wrk2 --latency -c 99 -t 3 -d 210 -R10000 'http://localhost:8080' > "../reports/$program"
   grep -E '(VmRSS|VmPeak)' /proc/$pid/status
   sleep 1
   kill -9 $pid

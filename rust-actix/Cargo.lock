@@ -392,6 +392,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "fast-async-mutex"
+version = "0.6.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b877ceff2e3d2922823bab7960826ce198181f9c25f75d67b913fde9237e2da6"
+
+[[package]]
 name = "flate2"
 version = "1.0.25"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -795,6 +801,7 @@ name = "rust-actix"
 version = "0.1.0"
 dependencies = [
  "actix-web",
+ "fast-async-mutex",
 ]
 
 [[package]]

@@ -1,2 +1,7 @@
-haskell node ocaml-reason swift-zewo go
+ocaml-reason 
+swift-zewo 
 python-uwsgi
+haskell 
+node 
+go
+rust-actix

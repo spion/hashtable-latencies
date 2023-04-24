@@ -1,1 +1,3 @@
-exec ./go
+#!/bin/bash
+
+exec ./htlatencies-go

@@ -1,7 +1,8 @@
 package main
 
 import (
-	"github.com/valyala/fasthttp"
+	"io"
+	"net/http"
 	"sync"
 )
 
@@ -11,7 +12,7 @@ func main() {
 	cnt := 0
 	max := 250000
 
-	handler := func(ctx *fasthttp.RequestCtx) {
+	handler := func(w http.ResponseWriter, r *http.Request) {
 		newBuffer := make([]byte, 1024)
 		mutex.Lock()
 		m[cnt] = newBuffer
@@ -20,7 +21,8 @@ func main() {
 		}
 		cnt = cnt + 1
 		mutex.Unlock()
-		ctx.WriteString("OK")
+		io.WriteString(w, "OK")
 	}
-	fasthttp.ListenAndServe(":8080", handler)
+	http.HandleFunc("/", handler)
+	http.ListenAndServe(":8080", nil)
 }
